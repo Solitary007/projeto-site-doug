@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Labeju - Canecas Criativas</title>
+<style>
+  :root {
+    --verde-escuro: #828C6A;
+    --verde-claro: #A0AB89;
+    --rosa-claro: #F6E5E7;
+    --rosa-medio: #EFC0BC;
+    --coral: #E69B97;
+    --laranja: #f26422;
+    --vermelho: #fff23c; 
+  }
+
+  * {
+    color: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: var(--rosa-claro);
+  }
+
+  /* ===== MENU LATERAL ===== */
+  .sidebar {
+    width: 250px;
+    background-color: var(--verde-claro);
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .sidebar h2 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+
+  .sidebar a:hover {
+    background-color: var(--verde-escuro);
+  }
+
+  /* ===== CONTEÚDO PRINCIPAL ===== */
+  .main-content {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+  }
+
+  .main-content.shifted {
+    margin-left: 250px;
+  }
+
+  /* HEADER */
+  header {
+    background-color: var(--verde-escuro);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--rosa-medio);
+  }
+
+  .logo img {
+    height: 100px;
+  }
+
+  .search {
+    flex: 1;
+    margin: 0 15px;
+  }
+
+  .search input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--verde-claro);
+    background-color: #fff;
+  }
+
+  .icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .icons a {
+    text-decoration: none;
+    color: var(--rosa-claro);
+    font-weight: 600;
+  }
+
+  /* ÍCONE MENU */
+  .menu-button {
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--rosa-claro);
+    padding: 8px;
+  }
+
+  /* ===== FAIXA DE AVISO ===== */
+  .info-bar {
+    background-color: var(--vermelho);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width: 768px) {
+    .main-content.shifted {
+      margin-left: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- MENU LATERAL -->
+<div class="sidebar" id="sidebar">
+  <h2>☕ Categorias</h2>
+  <a href="#">Presente Dindos</a>
+  <a href="#">Datas Especiais</a>
+  <a href="#">Gravados a laser</a>
+  <a href="#">Garrafas</a>
+  <a href="#">Casamento</a>
+  <a href="#">Canecas Personalizadas</a>
+  <a href="#">+ Mais Categorias</a>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="main-content" id="mainContent">
+
+  <!-- HEADER -->
+  <header>
+    <div class="icons">
+      <div class="menu-button" onclick="toggleSidebar()">☰</div>
+    </div>
+
+    <div class="logo">
+      <img src="img/logo-encantte.png" alt="Logo">
+    </div>
+
+    <div class="search">
+      <input type="text" placeholder="Pesquise aqui...">
+    </div>
+
+    <div class="icons">
+      <a href="#">Minha Conta</a>
+      <a href="#">Pedidos</a>
+      <a href="#">🛒 (0)</a>
+    </div>
+  </header>
+
+  <!-- FAIXA DE AVISO -->
+  <div class="info-bar">
+    🎁 Frete grátis acima de R$ 199 | Use o cupom <strong>ENCANTTE10</strong> e ganhe 10% de desconto!
+  </div>
+
+  <!-- CONTEÚDO -->
+  <div style="padding: 20px; color: white;">
+    <h1>Bem-vindo(a) à Encantte</h1>
+    <!-- <p>Escolha seu kit, personalize sua caneca e entregue amor em forma de arte! 💝</p> -->
+  </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('mainContent');
+    sidebar.classList.toggle('active');
+    content.classList.toggle('shifted');
+  }
+</script>
+
+</body>
+</html>
