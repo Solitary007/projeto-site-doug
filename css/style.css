@@ -99,6 +99,8 @@ nav a:hover {
 
 /* Cart */
 .cart {
+  height: 40px;
+  align-items: center;
   position: relative;
   cursor: pointer;
 }
