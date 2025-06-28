@@ -74,7 +74,28 @@ function addToCart(name, price) {
   // Aqui você pode implementar a lógica real de adicionar ao carrinho
 }
 
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('sidebar-open');
+  // Fecha ao clicar fora
+  if (sidebar.classList.contains('sidebar-open')) {
+    setTimeout(() => {
+      document.addEventListener('click', closeSidebarOnClickOutside, true);
+    }, 10);
+  } else {
+    document.removeEventListener('click', closeSidebarOnClickOutside, true);
+  }
+}
 
-function closeModal() {
-  document.getElementById('modal').style.display = "none";
+function closeSidebarOnClickOutside(e) {
+  const sidebar = document.getElementById('sidebar');
+  const toggles = document.querySelectorAll('.sidebar-toggle');
+  let isToggle = false;
+  toggles.forEach(btn => {
+    if (btn.contains(e.target)) isToggle = true;
+  });
+  if (!sidebar.contains(e.target) && !isToggle) {
+    sidebar.classList.remove('sidebar-open');
+    document.removeEventListener('click', closeSidebarOnClickOutside, true);
+  }
 }
