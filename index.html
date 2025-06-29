@@ -19,38 +19,66 @@
   <!-- Container e Header -->
   <div class="container">
     <header>
-      <div class="logo"><img src="img/logo-encantte.png" alt="Logo Afeto Canecas"></div>
-      <nav>
+      <div class="logo">
+        <img src="img/logo-encantte.png" alt="Logo Afeto Canecas">
+      </div>
+      <nav class="main-nav">
         <a href="#">Início</a>
-        <button class="nav-trigger" onclick="toggleSidebar()">Categorias e Produtos</button>
+        <a class="nav-trigger" onclick="toggleSidebar()">Categorias e Produtos</a>
         <a href="#">Quem Somos</a>
       </nav>
       <div class="search-bar-global">
         <input type="text" id="searchInput" placeholder="Buscar...">
         <img src="img/procurar.png" alt="Buscar">
       </div>
-      <!-- <div class="cart" data-count="0" onclick="alert('Carrinho em desenvolvimento')"><img src="img/carrinho-carrinho.png" alt="Carrinho"></div> -->
-      <button class="sidebar-trigger" onclick="toggleSidebar()"><img src="img/menu-aberto.png" alt="Menu"><span>Menu</span></button>
+      <div class="header-buttons">
+        <button class="sidebar-trigger" onclick="toggleSidebar()"><img src="img/menu-aberto.png" alt="Menu"></button>
+        <button class="sidebar-trigger"><img src="img/casa.png" alt="Inicio"></button>
+        <button class="sidebar-trigger"><img src="img/whatsapp.png" alt="Inicio"></button>
+      </div>
     </header>
   </div>
 
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
+    <img src="img/logo-encantte-white.png" alt="Logo Encantte" class="sidebar-logo">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <nav>
-      <a href="#">Início</a>
-      <a href="#">Kits</a>
-      <a href="#">Porcelana em Ouro</a>
-      <a href="#">Papelaria</a>
-      <a href="#">Canecas</a>
-      <a href="#">Copos</a>
-      <a href="#">Garrafas</a>
-      <a href="#">Lembrancinhas</a>
-      <a href="#">Xícaras Cerâmica</a>
-      <a href="#">Velas Aromáticas</a>
-      <a href="#">Diversos</a>
-      <a href="#">Corporativo</a>
-      <a href="#">Caixas</a>
+      <ul class="menu">
+        <li><a href="#" data-filter="Todos">Todos</a></li>
+        <li>
+          <span class="menu-toggle">Kits <span class="arrow"></span></span>
+          <ul class="submenu">
+            <li><a href="#" >Convites dindos/pastores</a></li>
+            <li><a href="#">Casais</a></li>
+            <li><a href="#">Individuais</a></li>
+            <li><a href="#"data-filter="Masculinos">Masculinos</a></li>
+            <li><a href="#">Femininos</a></li>
+            <li><a href="#">Anunciação de gravidez</a></li>
+            <li><a href="#">Avós</a></li>
+            <li><a href="#">Papelaria</a></li>
+            <li><a href="#">Manual de padrinhos</a></li>
+          </ul>
+        </li>
+        <li><a href="#" data-filter="Canecas">Canecas</a></li>
+        <li>
+          <span class="menu-toggle">Garrafas <span class="arrow"></span></span>
+          <ul class="submenu">
+            <li><a href="#">Térmicas</a></li>
+            <li><a href="#">Semi térmicas</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Xícaras</a></li>
+        <li><a href="#">Copos</a></li>
+        <li><a href="#">Caixas</a></li>
+        <li><a href="#">Necessaries</a></li>
+        <li><a href="#">Porta jóias</a></li>
+        <li><a href="#">Canetas</a></li>
+        <li><a href="#">Chaveiros</a></li>
+        <li><a href="#">Cestas/box</a></li>
+        <li><a href="#">Gravados a laser</a></li>
+        <li><a href="#">Diversos</a></li>
+      </ul>
     </nav>
   </aside>
 
@@ -61,51 +89,59 @@
   <section class="destaques">
     <h2>DESTAQUES</h2>
     <div class="produtos">
-      <div class="produto">
-        <img src="img/casais/kit-01/01.jpeg" alt="Kit 39">
-        <h3>Kit 39</h3>
+      <div class="produto"
+           data-categoria="Masculinos"
+           data-imgs="img/casais/kit-masculino-1/01.jpeg,img/casais/kit-masculino-1/02.jpeg,img/casais/kit-masculino-1/03.jpeg"
+           data-nome="Kit Masculino 01"
+           data-preco="R$213,00"
+           data-descricao="Kit especial para padrinhos com itens personalizados.">
+        <img src="img/casais/kit-masculino-1/01.jpeg" alt="Kit 39">
+        <h3>Kit Masculino 01</h3>
         <p>R$213,00</p>
-        <a 
-          href="https://wa.me/5599999999999?text=Olá,%20queria%20falar%20sobre%20o%20produto%20%22Kit%2039%22" 
-          target="_blank" 
-          class="whatsapp-btn"
-        >Chamar no Whatsapp</a>
+        <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
-      <div class="produto">
-        <img src="img/casais/kit-01/03.jpeg" alt="Xícara Janaína">
-        <h3>Xícara Janaína</h3>
-        <p>R$95,00</p>
-        <a 
-          href="https://wa.me/5599999999999?text=Olá,%20queria%20falar%20sobre%20o%20produto%20%22Xícara%20Janaína%22" 
-          target="_blank" 
-          class="whatsapp-btn"
-        >Chamar no Whatsapp</a>
+      <div class="produto"
+           data-imgs="img/casais/kit-masculino-1/02.jpeg"
+           data-nome="Kit Masculino 02"
+           data-preco="R$213,00"
+           data-descricao="Descrição do produto Xícara Janaína.">
+        <img src="img/casais/kit-masculino-1/03.jpeg" alt="Xícara Janaína">
+        <h3>Kit Masculino 02</h3>
+        <p>R$213,00</p>
+        <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
-      <div class="produto">
-        <img src="img/casais/kit-02/01.jpeg" alt="Xícara Eloísa">
-        <h3>Xícara Eloísa</h3>
-        <p>R$95,00</p>
-        <a 
-          href="https://wa.me/5599999999999?text=Olá,%20queria%20falar%20sobre%20o%20produto%20%22Xícara%20Eloísa%22" 
-          target="_blank" 
-          class="whatsapp-btn"
-        >Chamar no Whatsapp</a>
+      <div class="produto"
+           data-imgs="img/casais/kit-feminino-1/01.jpeg"
+           data-nome="Kit Feminino 01"
+           data-preco="R$213,00"
+           data-descricao="Descrição do produto Xícara Eloísa.">
+        <img src="img/casais/kit-feminino-1/01.jpeg" alt="Xícara Eloísa">
+        <h3>Kit Feminino 01</h3>
+        <p>R$213,00</p>
+        <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
-      <div class="produto">
-        <img src="img/casais/kit-02/02.jpeg" alt="Xícara Fran">
-        <h3>Xícara Fran</h3>
-        <p>R$215,00</p>
-        <a 
-          href="https://wa.me/5599999999999?text=Olá,%20queria%20falar%20sobre%20o%20produto%20%22Xícara%20Fran%22" 
-          target="_blank" 
-          class="whatsapp-btn"
-        >Chamar no Whatsapp</a>
+      <div class="produto"
+           data-imgs="img/casais/kit-feminino-1/02.jpeg"
+           data-nome="Kit Feminino 01"
+           data-preco="R$213,00"
+           data-descricao="Descrição do produto Xícara Fran.">
+        <img src="img/casais/kit-feminino-1/02.jpeg" alt="Xícara Fran">
+        <h3>Kit Feminino 02</h3>
+        <p>R$213,00</p>
+        <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
     </div>
   </section>
 
   <!-- Modal -->
-  <div id="modal" class="modal"></div>
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2 id="modalNome"></h2>
+      <p id="modalValor"></p>
+      <p id="modalDetalhes"></p>
+      <span class="close" onclick="fecharModal()">&times;</span>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>© 2025 Encantte Personalizados - Todos os direitos reservados.</footer>
