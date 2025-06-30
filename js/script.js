@@ -1,6 +1,9 @@
 // Toggle sidebar visibility
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('show');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  sidebar.classList.toggle('show');
+  overlay.classList.toggle('show');
 }
 
 // Close sidebar when clicking outside
@@ -18,11 +21,19 @@ document.getElementById('searchInput').addEventListener('input', function() {
   });
 });
 
-// Função para filtrar produtos
+// Filtro de produtos pelo nome da categoria
 document.querySelectorAll('[data-filter]').forEach(item => {
   item.addEventListener('click', function(e) {
     e.preventDefault();
     const categoria = this.getAttribute('data-filter');
+    // Troca o título
+    const titulo = document.getElementById('titulo-destaques');
+    if (categoria === 'Todos') {
+      titulo.textContent = 'Destaques';
+    } else {
+      titulo.textContent = categoria;
+    }
+    // Filtra os produtos normalmente
     document.querySelectorAll('.produto').forEach(produto => {
       if (categoria === 'Todos' || produto.getAttribute('data-categoria') === categoria) {
         produto.style.display = '';

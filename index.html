@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Afeto Canecas - Presentes que Aquecem o Coração</title>
+  <title>Ecantte - Personalizados</title>
   <meta name="description" content="Canecas, kits personalizados e presentes afetivos para todas as ocasiões. Confira nossa loja!">
   <link rel="icon" href="img/favicon.png">
   <link rel="stylesheet" href="css/style.css">
@@ -20,7 +20,7 @@
   <div class="container">
     <header>
       <div class="logo">
-        <img src="img/logo-encantte.png" alt="Logo Afeto Canecas">
+        <img href src="img/logo-encantte.png" alt="Logo Afeto Canecas">
       </div>
       <nav class="main-nav">
         <a href="#">Início</a>
@@ -33,15 +33,17 @@
       </div>
       <div class="header-buttons">
         <button class="sidebar-trigger" onclick="toggleSidebar()"><img src="img/menu-aberto.png" alt="Menu"></button>
-        <button class="sidebar-trigger"><img src="img/casa.png" alt="Inicio"></button>
+        <button class="sidebar-trigger"><a href=""><img src="img/casa.png" alt="Inicio"></a></button>
         <button class="sidebar-trigger"><img src="img/whatsapp.png" alt="Inicio"></button>
       </div>
     </header>
   </div>
 
+  <div class="navbar-separator"></div>
   <!-- Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
   <aside class="sidebar" id="sidebar">
-    <img src="img/logo-encantte-white.png" alt="Logo Encantte" class="sidebar-logo">
+    <img src="img/logo-flor-encantte-branco.png" alt="Logo Encantte" class="sidebar-logo">
     <button class="close-btn" onclick="toggleSidebar()">&times;</button>
     <nav>
       <ul class="menu">
@@ -49,15 +51,19 @@
         <li>
           <span class="menu-toggle">Kits <span class="arrow"></span></span>
           <ul class="submenu">
-            <li><a href="#" >Convites dindos/pastores</a></li>
-            <li><a href="#">Casais</a></li>
-            <li><a href="#">Individuais</a></li>
-            <li><a href="#"data-filter="Masculinos">Masculinos</a></li>
-            <li><a href="#">Femininos</a></li>
-            <li><a href="#">Anunciação de gravidez</a></li>
-            <li><a href="#">Avós</a></li>
-            <li><a href="#">Papelaria</a></li>
-            <li><a href="#">Manual de padrinhos</a></li>
+            <li>
+              <span class="menu-toggle">Convites dindos/pastores <span class="arrow"></span></span>
+              <ul class="submenu">
+                <li><a href="#" data-filter="Casais">Casais</a></li>
+                <li><a href="#" data-filter="Individuais">Individuais</a></li>
+              </ul>
+            </li>
+            <li><a href="#" data-filter="Masculinos">Masculinos</a></li>
+            <li><a href="#" data-filter="Femininos">Femininos</a></li>
+            <li><a href="#" data-filter="Gravidez">Anunciação de gravidez</a></li>
+            <li><a href="#" data-filter="Avós">Avós</a></li>
+            <li><a href="#" data-filter="Papelaria">Papelaria</a></li>
+            <li><a href="#" data-filter="Padrinhos">Padrinhos</a></li>
           </ul>
         </li>
         <li><a href="#" data-filter="Canecas">Canecas</a></li>
@@ -83,49 +89,95 @@
   </aside>
 
   <!-- Banner -->
-  <div class="banner">Kits para Padrinhos</div>
+  <div class="banner-carousel">
+    <button class="carousel-arrow left" onclick="mudarSlide(-1)">&#10094;</button>
+    <div class="carousel-slides">
+      <img class="banner-slide" src="img/banners/banner.jpeg" alt="Banner 1" style="display:block;">
+      <img class="banner-slide" src="img/banners/banner.jpeg" alt="Banner 2" style="display:none;">
+      <img class="banner-slide" src="img/banners/banner.jpeg" alt="Banner 3" style="display:none;">
+    </div>
+    <button class="carousel-arrow right" onclick="mudarSlide(1)">&#10095;</button>
+  </div>
+  <div class="carousel-dots" id="carouselDots">
+    <span class="dot active" onclick="irParaSlide(0)"></span>
+    <span class="dot" onclick="irParaSlide(1)"></span>
+    <span class="dot" onclick="irParaSlide(2)"></span>
+  </div>
 
   <!-- Destaques -->
   <section class="destaques">
-    <h2>DESTAQUES</h2>
+    <div class="destaques-titulo-barra">
+      <div class="navbar-separator"></div>
+      <h2 id="titulo-destaques">Destaques</h2>
+      <div class="navbar-separator"></div>
+    </div>
     <div class="produtos">
       <div class="produto"
            data-categoria="Masculinos"
-           data-imgs="img/casais/kit-masculino-1/01.jpeg,img/casais/kit-masculino-1/02.jpeg,img/casais/kit-masculino-1/03.jpeg"
+           data-imgs="img/copos/01/01.png, img/copos/01/02.png, img/copos/01/03.png"
            data-nome="Kit Masculino 01"
-           data-preco="R$213,00"
-           data-descricao="Kit especial para padrinhos com itens personalizados.">
-        <img src="img/casais/kit-masculino-1/01.jpeg" alt="Kit 39">
+           data-preco="R$239,00"
+           data-descricao="
+                    <b>ITENS:</b><br>
+                    - Caixa cartonada 20x20cm
+                    - ⁠Chaveiro com foto/frase
+                    - ⁠Caneta de metal
+                    - ⁠Bloquinho 14x9cm com linhas
+                    - ⁠Copo
+                    (Consultar cores disponíveis dos itens).<br>
+                    <b>PERSONALIZAÇÃO:</b></b><br>
+                    Gravação a laser em caixa, copo e caneta. Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes.
+                    Processo de Termocolante em chaveiro e  bloquinho. 
+                    <b>PERSONALIZAÇÃO NÃO SOLTA.</b><br><br>
+                    <b>Caso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.</b>">
+
+                  <img src="img/copos/01/01.png" alt="Kit Masculino 01">
         <h3>Kit Masculino 01</h3>
         <p>R$213,00</p>
         <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
       <div class="produto"
-           data-imgs="img/casais/kit-masculino-1/02.jpeg"
-           data-nome="Kit Masculino 02"
-           data-preco="R$213,00"
-           data-descricao="Descrição do produto Xícara Janaína.">
-        <img src="img/casais/kit-masculino-1/03.jpeg" alt="Xícara Janaína">
+          data-categoria="Masculinos"            
+          data-imgs="img/casais/kit-masculino-1/02.jpeg"
+          data-nome="Kit Masculino 02"
+          data-preco="R$213,00"
+          data-descricao="
+          <br><b>ITENS:</b>
+          - Caixa de mdf 20x20cm
+          - ⁠Chaveiro 
+          - ⁠Caneta de metal 
+          - ⁠Bloquinho 14x9cm com linhas
+          - ⁠Necessarie 15x10cm 
+          ( Consultar cores disponíveis dos itens).<br>
+          <b>PERSONALIZAÇÃO:</b><br>
+
+          Gravação a laser em caixa e caneta. Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes. 
+          Processo de Termocolante em chaveiro, Necessarie e bloquinho. PERSONALIZAÇÃO NÃO SOLTA. 
+
+          Caso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.">
+        <img src="img/casais/kit-masculino-1/03.jpeg" alt="Kit Masculino 02">
         <h3>Kit Masculino 02</h3>
         <p>R$213,00</p>
         <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
       <div class="produto"
-           data-imgs="img/casais/kit-feminino-1/01.jpeg"
-           data-nome="Kit Feminino 01"
-           data-preco="R$213,00"
-           data-descricao="Descrição do produto Xícara Eloísa.">
-        <img src="img/casais/kit-feminino-1/01.jpeg" alt="Xícara Eloísa">
+          data-categoria="Femininos"
+          data-imgs="img/casais/kit-feminino-1/01.jpeg"
+          data-nome="Kit Feminino 01"
+          data-preco="R$213,00"
+          data-descricao="Descrição do produto Xícara Eloísa.">
+        <img src="img/casais/kit-feminino-1/01.jpeg" alt="Kit Feminino 01">
         <h3>Kit Feminino 01</h3>
         <p>R$213,00</p>
         <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
       <div class="produto"
-           data-imgs="img/casais/kit-feminino-1/02.jpeg"
-           data-nome="Kit Feminino 01"
-           data-preco="R$213,00"
-           data-descricao="Descrição do produto Xícara Fran.">
-        <img src="img/casais/kit-feminino-1/02.jpeg" alt="Xícara Fran">
+          data-categoria="Femininos"
+          data-imgs="img/casais/kit-feminino-1/02.jpeg"
+          data-nome="Kit Feminino 02"
+          data-preco="R$213,00"
+          data-descricao="Descrição do produto Xícara Fran.">
+        <img src="img/casais/kit-feminino-1/02.jpeg" alt="Kit Feminino 02">
         <h3>Kit Feminino 02</h3>
         <p>R$213,00</p>
         <a target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
@@ -136,6 +188,11 @@
   <!-- Modal -->
   <div id="modal" class="modal" style="display:none;">
     <div class="modal-content">
+      <div class="modal-img-wrapper">
+        <button class="modal-carousel-arrow left" onclick="modalTrocarImagem(-1)" aria-label="Imagem anterior">&#10094;</button>
+        <img id="modalImagem" src="" alt="">
+        <button class="modal-carousel-arrow right" onclick="modalTrocarImagem(1)" aria-label="Próxima imagem">&#10095;</button>
+      </div>
       <h2 id="modalNome"></h2>
       <p id="modalValor"></p>
       <p id="modalDetalhes"></p>
@@ -147,5 +204,127 @@
   <footer>© 2025 Encantte Personalizados - Todos os direitos reservados.</footer>
 
   <script src="js/script.js"></script>
+  <style>
+    /* Animações para o carrossel */
+    .banner-slide {
+      transition: none;
+      opacity: 0;
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    .banner-slide.active {
+      opacity: 1;
+      position: relative;
+      z-index: 2;
+      transition: opacity 0.5s;
+    }
+    .banner-slide.slide-in-left {
+      animation: slideInLeft 0.5s forwards;
+    }
+    .banner-slide.slide-in-right {
+      animation: slideInRight 0.5s forwards;
+    }
+    .banner-slide.slide-out-left {
+      animation: slideOutLeft 0.5s forwards;
+    }
+    .banner-slide.slide-out-right {
+      animation: slideOutRight 0.5s forwards;
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px);}
+      to   { opacity: 1; transform: translateX(0);}
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px);}
+      to   { opacity: 1; transform: translateX(0);}
+    }
+    @keyframes slideOutLeft {
+      from { opacity: 1; transform: translateX(0);}
+      to   { opacity: 0; transform: translateX(-60px);}
+    }
+    @keyframes slideOutRight {
+      from { opacity: 1; transform: translateX(0);}
+      to   { opacity: 0; transform: translateX(60px);}
+    }
+    .carousel-slides {
+      position: relative;
+      min-height: 1px;
+    }
+  </style>
+  <script>
+    // Carrossel Banner com animação
+    let slideAtual = 0;
+    const slides = document.querySelectorAll('.banner-slide');
+    const dots = document.querySelectorAll('#carouselDots .dot');
+    let animando = false;
+
+    function mostrarSlide(n, direcao = null) {
+      if (slides.length === 0 || animando) return;
+      if (n === slideAtual) return;
+
+      animando = true;
+      const anterior = slideAtual;
+      slideAtual = (n + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+        slide.style.display = 'none';
+      });
+
+      // Slide anterior: anima saída
+      if (direcao) {
+        slides[anterior].style.display = 'block';
+        slides[anterior].classList.add(direcao === 'left' ? 'slide-out-left' : 'slide-out-right');
+      }
+
+      // Slide novo: anima entrada
+      slides[slideAtual].style.display = 'block';
+      slides[slideAtual].classList.add('active', direcao === 'left' ? 'slide-in-right' : direcao === 'right' ? 'slide-in-left' : '');
+
+      // Atualiza dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === slideAtual);
+      });
+
+      // Espera animação terminar
+      setTimeout(() => {
+        slides.forEach((slide, i) => {
+          slide.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+          slide.style.display = (i === slideAtual) ? 'block' : 'none';
+          slide.classList.toggle('active', i === slideAtual);
+        });
+        animando = false;
+      }, 500);
+    }
+
+    function mudarSlide(delta) {
+      if (animando) return;
+      const direcao = delta > 0 ? 'right' : 'left';
+      mostrarSlide(slideAtual + delta, direcao);
+    }
+
+    function irParaSlide(n) {
+      if (animando || n === slideAtual) return;
+      const direcao = n > slideAtual ? 'right' : 'left';
+      mostrarSlide(n, direcao);
+    }
+
+    // Inicializa o carrossel
+    slides.forEach((slide, i) => {
+      slide.style.display = (i === slideAtual) ? 'block' : 'none';
+      slide.classList.toggle('active', i === slideAtual);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === slideAtual);
+    });
+
+    // Opcional: autoplay
+    // setInterval(() => mudarSlide(1), 7000);
+  </script>
+</body>
+</html>
+  </script>
 </body>
 </html>

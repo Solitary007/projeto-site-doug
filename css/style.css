@@ -12,7 +12,7 @@ html, body {
 /* Cores e tema */
 :root {
   --cor-primaria: #4a6d64;
-  --cor-primaria-dark: #3a574f;
+  --cor-primaria-dark: #879882;
   --cor-clara: #fff;
   --cor-texto: #333;
   --cor-secundaria: #f5f5f5;
@@ -56,7 +56,7 @@ header {
   position: relative;
 }
 .logo img {
-  height: 80px;
+  height: 140px;
 }
 
 /* Navegação Desktop com trigger */
@@ -127,6 +127,7 @@ nav a:hover,
   color: #fff;
   width: 270px;
   max-width: 90vw;
+  height: 100dvh;
   height: 100vh;
   position: fixed;
   top: 0; left: 0;
@@ -171,7 +172,7 @@ nav a:hover,
 .sidebar-logo {
   display: block;
   margin: 16px auto 8px auto;
-  max-width: 140px;
+  max-width: 180px;
   height: auto;
 }
 
@@ -219,7 +220,9 @@ nav a:hover,
 .produtos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 12px; /* diminua esse valor para aproximar mais */
+  max-width: 1400px; /* limite a largura máxima do grid */
+  margin: auto;   /* centraliza o grid na tela */
   justify-items: center;
 }
 .produto {
@@ -288,39 +291,76 @@ nav a:hover,
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: visible;
+  overflow-y: auto;
+  /* Para evitar barra horizontal desnecessária */
+  scrollbar-width: none; /* Firefox */
 }
-.modal-content img {
-  max-width: 100%;
-  max-height: 250px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 6px;
-  margin-bottom: 16px;
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+  background: #f5f5f5;
 }
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 10; /* Garante que fique acima da imagem */
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #333;
-  cursor: pointer;
-  padding: 4px 8px;
-  transition: background 0.2s;
+.modal-content::-webkit-scrollbar-thumb {
+  background: #b7c7c2;
+  border-radius: 8px;
 }
-.close-btn:hover {
-  background: #eee;
+
+/* Títulos do modal em maiúsculo, negrito e Questrial */
+.modal-content h3,
+.modal-content .modal-title {
+  font-family: 'Questrial', Arial, sans-serif !important;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+/* Estilização dos detalhes do produto no modal */
+.modal-details-section {
+  text-align: left;
+  width: 100%;
+  margin: 18px 0 0 0;
+}
+
+.modal-details-section strong {
+  display: block;
+  font-family: 'Questrial', Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 1.05em;
+  color: #4a6d64;
+}
+
+.modal-details-section ul {
+  margin: 0 0 10px 18px;
+  padding-left: 18px;
+  list-style: disc;
+  font-size: 1em;
+  color: #444;
+}
+
+.modal-details-section .modal-note {
+  font-size: 0.97em;
+  color: #666;
+  margin-bottom: 10px;
+  margin-left: 2px;
+}
+
+.modal-details-section p {
+  margin: 6px 0 10px 0;
+  font-size: 1em;
+  color: #444;
 }
 
 .footer {
-  background-color: var(--cor-secundaria);
-  padding: 5px 20px;
-  font-size: 12px;
-  text-align: right;
+  background: linear-gradient(90deg, #4e6b64 0%, #7fa69e 100%);
+  color: #fff;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-top: 2px solid #3c4f4a;
 }
 
 @media (max-width: 600px) {
@@ -356,7 +396,7 @@ nav a:hover,
     font-size: 1.1rem;
   }
   .sidebar-logo {
-    max-width: 110px;
+    /* max-width: 110px; */
     margin: 12px auto 8px auto;
   }
   .menu-toggle,
@@ -386,7 +426,7 @@ nav a:hover,
 /* Botão WhatsApp */
 .whatsapp-btn {
   display: inline-block;
-  background-color: var(--cor-primaria);
+  background-color: var(--cor-primaria-dark);
   color: white;
   border: none;
   padding: 8px 16px;
@@ -418,26 +458,33 @@ nav a:hover,
 }
 .carousel-img {
   max-width: 100%;
-  max-height: 180px;
+  max-height: 380px;
   border-radius: 8px;
   margin: 0 24px;
   transition: opacity 0.3s;
 }
 .carousel-arrow {
-  font-size: 2rem;
-  color: #4a6d64;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none; /* sem fundo */
+  color: var(--cor-clara);   /* verde */
+  border: none;
+  font-size: 2.2rem;
+  padding: 0;
+  border-radius: 50%;
   cursor: pointer;
-  user-select: none;
-  padding: 0 8px;
-  transition: color 0.2s;
+  z-index: 2;
+  transition: color 0.2s, background 0.2s;
+  box-shadow: none;
 }
-.carousel-arrow:hover {
-  color: #2e423b;
-}
+.carousel-arrow.left { left: -40px; }   /* seta para fora */
+.carousel-arrow.right { right: -40px; } /* seta para fora */
+.carousel-arrow:hover { color: #2e423b; background: none; }
 .carousel-dots {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
 }
 .carousel-dots .dot {
   width: 10px;
@@ -462,7 +509,94 @@ nav a:hover,
   }
 }
 
-/* Responsivo */
+/* Banner Carousel */
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 32px auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  /* overflow: hidden; */ /* Remova ou comente esta linha */
+  overflow: visible;      /* Adicione esta linha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.carousel-slides {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-slide {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center bottom; /* <-- Adicionado para subir a imagem */
+  border-radius: 0;
+  display: none;
+  background: #fff;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none; /* sem fundo */
+  color: var(--cor-primaria-dark);   /* verde */
+  border: none;
+  font-size: 2.2rem;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s, background 0.2s;
+  box-shadow: none;
+}
+.carousel-arrow.left { left: -40px; }   /* seta para fora */
+.carousel-arrow.right { right: -40px; } /* seta para fora */
+.carousel-arrow:hover { color: var(--cor-primaria-dark); background: none; }
+
+.carousel-dots {
+  display: flex !important;
+  align-items: center;
+  left: 50%;
+  gap: 8px;
+  margin-top: 10px; /* Garante que não tenha margem extra */
+}
+.carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 2px solid #4e6b64;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s, background 0.2s;
+}
+.carousel-dots .dot.active,
+.carousel-dots .dot:hover {
+  background: var(--cor-primaria-dark);
+  opacity: 1;
+}
+@media (max-width: 1000px) {
+  .banner-carousel {
+    max-width: 98vw;
+    min-height: 180px;
+  }
+  .banner-slide {
+    height: 180px;
+    object-position: center top; /* Garante o mesmo ajuste no responsivo */
+  }
+  .carousel-arrow.left { left: -16px; }
+  .carousel-arrow.right { right: -16px; }
+}
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -544,10 +678,11 @@ nav a:hover,
 
 /* Sidebar com fundo verde-claro e letras brancas */
 .sidebar {
-  background: #5fa89b; /* verde-claro */
+  background: var(--cor-primaria-dark); /* verde-claro */
   color: #fff;
   width: 270px;
   max-width: 90vw;
+  height: 100dvh;
   height: 100vh;
   position: fixed;
   top: 0; left: 0;
@@ -557,10 +692,15 @@ nav a:hover,
 }
 
 /* Menu e submenus */
-.menu, .menu ul {
+.menu  {
   list-style: none;
   padding-left: 0;
-  margin: 0;
+  margin-bottom: 100px;
+}
+
+.menu ul {
+  list-style: none;
+  padding-left: 0;
 }
 .menu > li {
   border-bottom: 1px solid #b7c7c2;
@@ -619,4 +759,326 @@ nav a:hover,
 }
 .menu li.open > .menu-toggle .arrow {
   border-color: #40655e;
+}
+
+/* Primeiro nível de submenu */
+.menu > li > .submenu {
+  background: #7fcfc0; /* cor do primeiro submenu */
+}
+
+/* Segundo nível de submenu (sub-submenu) */
+.menu > li > .submenu > li > .submenu {
+  background: #b2e6dd; /* cor diferente para sub-submenu */
+}
+
+/* Opcional: ajuste a cor do texto se necessário */
+.menu > li > .submenu > li > .submenu > li > a {
+  color: #333 !important;
+}
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(0,0,0,0.4);
+  z-index: 998; /* menor que a sidebar */
+  transition: opacity 0.3s;
+}
+.sidebar.show ~ .sidebar-overlay,
+.sidebar-overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+.navbar-separator {
+  width: calc(100% - 64px);
+  height: 0.005rem;
+  background: var(--cor-primaria-dark);
+  margin: 0 auto 0 auto;
+  border-radius: 2px;
+  border: none;
+  box-shadow: none;
+  max-width: 1200px;
+}
+
+.destaques-titulo-barra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+.destaques-titulo-barra .navbar-separator.destaque-barra {
+  flex: 1 1 0;
+  max-width: 400px;
+  min-width: 40px;
+  margin: 0;
+  height: 0.005rem;
+}
+.destaques-titulo-barra h2 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 0.005rem;
+  white-space: nowrap;
+}
+
+/* Importa a fonte Questrial do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+/* Setas do carrossel dentro do modal */
+/*
+.modal-content .modal-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: #4a6d64;
+  border: none;
+  font-size: 2.2rem;
+  padding: 0 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s, background 0.2s;
+  box-shadow: none;
+  opacity: 0.85;
+}
+.modal-content .modal-carousel-arrow.left {
+  left: 8px;
+}
+.modal-content .modal-carousel-arrow.right {
+  right: 8px;
+}
+.modal-content .modal-carousel-arrow:hover {
+  color: #2e423b;
+  background: #f2f2f2;
+}
+*/
+
+/* Use apenas este bloco para as setas do modal */
+.modal-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  color: #4a6d64;
+  border: none;
+  font-size: 2.2rem;
+  padding: 0 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 30;
+  transition: color 0.2s, background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  opacity: 0.92;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-carousel-arrow.left {
+  left: 8px;
+}
+.modal-carousel-arrow.right {
+  right: 8px;
+}
+.modal-carousel-arrow:hover {
+  color: #2e423b;
+  background: #f2f2f2;
+}
+
+/* Ajuste para garantir que a imagem não fique atrás das setas */
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-img-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  max-width: 340px;
+}
+
+.modal-img-wrapper img {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 12px;
+  display: block;
+}
+
+.modal-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  color: #4a6d64;
+  border: none;
+  font-size: 2.2rem;
+  padding: 0 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s, background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  opacity: 0.92;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-carousel-arrow.left {
+  left: 8px;
+}
+.modal-carousel-arrow.right {
+  right: 8px;
+}
+.modal-carousel-arrow:hover {
+  color: #2e423b;
+  background: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+  .modal-img-wrapper {
+    max-width: 98vw;
+  }
+  .modal-carousel-arrow {
+    font-size: 1.5rem;
+    height: 32px;
+    width: 32px;
+    left: 8px;
+    right: 8px;
+  }
+  .modal-carousel-arrow.left {
+    left: 8px;
+  }
+  .modal-carousel-arrow.right {
+    right: 8px;
+  }
+}
+
+/* Botão de fechar (X) sempre no topo direito da janela do modal */
+.close,
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 20;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #4a6d64;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 50%;
+  line-height: 1;
+}
+.close:hover,
+.close-btn:hover {
+  background: #f2f2f2;
+  color: #2e423b;
+}
+
+/* Modal: estilização dos textos principais */
+#modalNome, .modal-title {
+  font-family: 'Questrial', Arial, sans-serif !important;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #4a6d64;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+#modalValor {
+  font-family: 'Questrial', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2e423b;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#modalDetalhes {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.01rem;
+  color: #444;
+  margin-bottom: 12px;
+  text-align: left;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Se quiser estilizar listas dentro dos detalhes */
+#modalDetalhes ul {
+  margin: 0 0 10px 18px;
+  padding-left: 18px;
+  list-style: disc;
+  color: #4a6d64;
+  font-size: 1em;
+}
+#modalDetalhes li {
+  margin-bottom: 4px;
+}
+
+/* Use Questrial como fonte principal do modal */
+.modal-content,
+#modalNome,
+#modalValor,
+#modalDetalhes,
+.modal-details-section,
+.modal-details-section *,
+.modal-title {
+  font-family: 'Questrial', Arial, sans-serif !important;
+}
+
+/* Ajuste para manter o visual limpo e consistente */
+#modalNome, .modal-title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #4a6d64;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+#modalValor {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2e423b;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#modalDetalhes {
+  font-size: 1.01rem;
+  color: #444;
+  margin-bottom: 12px;
+  text-align: left;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Listas e detalhes também com Questrial */
+#modalDetalhes ul,
+#modalDetalhes li,
+.modal-details-section ul,
+.modal-details-section li {
+  font-family: 'Questrial', Arial, sans-serif !important;
+  color: #4a6d64;
+  font-size: 1em;
+}
+#modalDetalhes li,
+.modal-details-section li {
+  margin-bottom: 4px;
 }
