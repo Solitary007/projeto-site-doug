@@ -292,3 +292,14 @@ document.addEventListener('DOMContentLoaded', function() {
     inicializarEventosProdutos();
   }
 });
+
+// Script para abrir/fechar submenus da sidebar
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.sidebar .menu-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var li = this.closest('li');
+      if (li) li.classList.toggle('open');
+    });
+  });
+});
