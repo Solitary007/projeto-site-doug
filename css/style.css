@@ -450,7 +450,7 @@ nav a:hover,
 /* Carousel */
 .carousel {
   position: relative;
-  width: 100%;
+  width: 85%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -534,7 +534,7 @@ nav a:hover,
 }
 
 .banner-slide {
-  width: 100%;
+  width: 80%;
   height: 340px;
   object-fit: cover;
   object-position: center bottom; /* <-- Adicionado para subir a imagem */
@@ -594,8 +594,8 @@ nav a:hover,
     height: 180px;
     object-position: center top; /* Garante o mesmo ajuste no responsivo */
   }
-  .carousel-arrow.left { left: -16px; }
-  .carousel-arrow.right { right: -16px; }
+  .carousel-arrow.left { left: 15px; }
+  .carousel-arrow.right { right: 15px; }
 }
 @media (max-width: 768px) {
   header {

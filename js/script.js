@@ -182,3 +182,72 @@ document.querySelectorAll('.menu-toggle').forEach(toggle => {
     li.classList.toggle('open');
   });
 });
+
+// Carrossel Banner com animação
+let slideAtual = 0;
+const slides = document.querySelectorAll('.banner-slide');
+const dots = document.querySelectorAll('#carouselDots .dot');
+let animando = false;
+
+function mostrarSlide(n, direcao = null) {
+  if (slides.length === 0 || animando) return;
+  if (n === slideAtual) return;
+
+  animando = true;
+  const anterior = slideAtual;
+  slideAtual = (n + slides.length) % slides.length;
+
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+    slide.style.display = 'none';
+  });
+
+  // Slide anterior: anima saída
+  if (direcao) {
+    slides[anterior].style.display = 'block';
+    slides[anterior].classList.add(direcao === 'left' ? 'slide-out-left' : 'slide-out-right');
+  }
+
+  // Slide novo: anima entrada
+  slides[slideAtual].style.display = 'block';
+  slides[slideAtual].classList.add('active', direcao === 'left' ? 'slide-in-right' : direcao === 'right' ? 'slide-in-left' : '');
+
+  // Atualiza dots
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === slideAtual);
+  });
+
+  // Espera animação terminar
+  setTimeout(() => {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+      slide.style.display = (i === slideAtual) ? 'block' : 'none';
+      slide.classList.toggle('active', i === slideAtual);
+    });
+    animando = false;
+  }, 500);
+}
+
+function mudarSlide(delta) {
+  if (animando) return;
+  const direcao = delta > 0 ? 'right' : 'left';
+  mostrarSlide(slideAtual + delta, direcao);
+}
+
+function irParaSlide(n) {
+  if (animando || n === slideAtual) return;
+  const direcao = n > slideAtual ? 'right' : 'left';
+  mostrarSlide(n, direcao);
+}
+
+// Inicializa o carrossel
+slides.forEach((slide, i) => {
+  slide.style.display = (i === slideAtual) ? 'block' : 'none';
+  slide.classList.toggle('active', i === slideAtual);
+});
+dots.forEach((dot, i) => {
+  dot.classList.toggle('active', i === slideAtual);
+});
+
+// Opcional: autoplay
+// setInterval(() => mudarSlide(1), 7000);
