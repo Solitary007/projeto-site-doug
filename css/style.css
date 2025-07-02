@@ -254,7 +254,6 @@ nav a:hover,
 }
 .produto p {
   margin: 5px 0;
-  color: #666;
 }
 .produto button {
   background-color: var(--cor-primaria);
@@ -268,6 +267,14 @@ nav a:hover,
 }
 .produto button:hover {
   background-color: var(--cor-primaria-dark);
+}
+
+/* Preço destacado */
+.price {
+  color: var(--cor-primaria-dark);
+  font-size: 1.35rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
 }
 
 /* Modal Produto */

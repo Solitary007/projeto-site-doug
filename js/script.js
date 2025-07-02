@@ -93,7 +93,7 @@ function openModal(imgs, name, price, installments = '1x', description = '', qua
         <h3>${name}</h3>
         <p class="price">${price}</p>
         <p class="installments">Ou em até ${installments} sem juros</p>
-        ${description ? `<p><strong>Detalhes:</strong> ${description.replace(/\n/g, '<br>')}</p>` : ''}
+        ${description ? `<p>${description.replace(/\n/g, '<br>')}</p>` : ''}
         <a href="${whatsappLink}" target="_blank" class="whatsapp-btn">Chamar no Whatsapp</a>
       </div>
     </div>
@@ -204,7 +204,7 @@ function renderizarProdutos(produtosData) {
     el.innerHTML = `
       <img src="${produto.imgs[0]}" alt="${produto.nome}">
       <h3>${produto.nome}</h3>
-      <p>${produto.preco}</p>
+      <p class="price">${produto.preco}</p>
       <a target="_blank" class="whatsapp-btn" href="https://wa.me/5545999432624?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20${encodeURIComponent(produto.nome)}">Chamar no Whatsapp</a>
     `;
     container.appendChild(el);
