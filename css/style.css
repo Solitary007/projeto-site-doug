@@ -1,3 +1,6 @@
+/* Importa a fonte Questrial do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
 /* Reset e overflow */
 *, *::before, *::after {
   margin: 0;
@@ -834,8 +837,8 @@ nav a:hover,
   white-space: nowrap;
 }
 
-/* Importa a fonte Questrial do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+
 /* Setas do carrossel dentro do modal */
 /*
 .modal-content .modal-carousel-arrow {
@@ -1043,17 +1046,21 @@ nav a:hover,
 
 /* Fonte Questrial para descrições e títulos do modal */
 .modal-info,
-.modal-content,
-#modalNome,
-#modalValor,
-#modalDetalhes,
-.modal-details-section,
-.modal-details-section *,
-.modal-title {
-  font-family: 'Questrial', Arial, sans-serif !important;
+.produto,
+#modalDetalhes {
+  font-family: 'Questrial', sans-serif;
 }
 
 /* Se quiser aplicar nos cards de produto também: */
 .produto {
   font-family: 'Questrial', Arial, sans-serif;
+}
+
+/* Para títulos em negrito dentro das descrições, use a fonte padrão do sistema */
+.modal-info b,
+#modalDetalhes b,
+.produto b {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
 }
