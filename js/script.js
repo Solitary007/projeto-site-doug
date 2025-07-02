@@ -44,6 +44,29 @@ document.querySelectorAll('[data-filter]').forEach(item => {
   });
 });
 
+// Função para filtrar produtos por categoria
+function filtrarProdutos(categoria) {
+  document.querySelectorAll('.produto').forEach(function(produto) {
+    const categorias = produto.getAttribute('data-categoria').split(',').map(c => c.trim());
+    if (categoria === 'Todos' || categorias.includes(categoria)) {
+      produto.style.display = '';
+    } else {
+      produto.style.display = 'none';
+    }
+  });
+}
+
+// Adiciona evento aos itens do menu lateral
+document.querySelectorAll('.sidebar [data-filter]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const categoria = this.getAttribute('data-filter');
+    filtrarProdutos(categoria);
+    // Fechar sidebar se necessário
+    toggleSidebar();
+  });
+});
+
 // Open product modal
 function openModal(imgs, name, price, installments = '1x', description = '', quantity = 1) {
   if (!Array.isArray(imgs)) imgs = [imgs];
@@ -183,71 +206,56 @@ document.querySelectorAll('.menu-toggle').forEach(toggle => {
   });
 });
 
-// Carrossel Banner com animação
+// Banner central com fade suave
 let slideAtual = 0;
 const slides = document.querySelectorAll('.banner-slide');
-const dots = document.querySelectorAll('#carouselDots .dot');
-let animando = false;
+const dots = document.querySelectorAll('.carousel-dots .dot');
+let intervaloBanner = null;
 
-function mostrarSlide(n, direcao = null) {
-  if (slides.length === 0 || animando) return;
-  if (n === slideAtual) return;
-
-  animando = true;
-  const anterior = slideAtual;
-  slideAtual = (n + slides.length) % slides.length;
-
+function mostrarSlide(n) {
   slides.forEach((slide, i) => {
-    slide.classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
-    slide.style.display = 'none';
+    slide.classList.toggle('active', i === n);
   });
-
-  // Slide anterior: anima saída
-  if (direcao) {
-    slides[anterior].style.display = 'block';
-    slides[anterior].classList.add(direcao === 'left' ? 'slide-out-left' : 'slide-out-right');
-  }
-
-  // Slide novo: anima entrada
-  slides[slideAtual].style.display = 'block';
-  slides[slideAtual].classList.add('active', direcao === 'left' ? 'slide-in-right' : direcao === 'right' ? 'slide-in-left' : '');
-
-  // Atualiza dots
   dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === slideAtual);
+    dot.classList.toggle('active', i === n);
   });
-
-  // Espera animação terminar
-  setTimeout(() => {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
-      slide.style.display = (i === slideAtual) ? 'block' : 'none';
-      slide.classList.toggle('active', i === slideAtual);
-    });
-    animando = false;
-  }, 500);
+  slideAtual = n;
 }
 
 function mudarSlide(delta) {
-  if (animando) return;
-  const direcao = delta > 0 ? 'right' : 'left';
-  mostrarSlide(slideAtual + delta, direcao);
+  let novo = slideAtual + delta;
+  if (novo < 0) novo = slides.length - 1;
+  if (novo >= slides.length) novo = 0;
+  mostrarSlide(novo);
+  reiniciarIntervalo();
 }
 
 function irParaSlide(n) {
-  if (animando || n === slideAtual) return;
-  const direcao = n > slideAtual ? 'right' : 'left';
-  mostrarSlide(n, direcao);
+  mostrarSlide(n);
+  reiniciarIntervalo();
 }
 
-// Inicializa o carrossel
-slides.forEach((slide, i) => {
-  slide.style.display = (i === slideAtual) ? 'block' : 'none';
-  slide.classList.toggle('active', i === slideAtual);
-});
-dots.forEach((dot, i) => {
-  dot.classList.toggle('active', i === slideAtual);
-});
+function proximoSlideAuto() {
+  mudarSlide(1);
+}
 
-// Opcional: autoplay
-// setInterval(() => mudarSlide(1), 7000);
+function reiniciarIntervalo() {
+  if (intervaloBanner) clearInterval(intervaloBanner);
+  intervaloBanner = setInterval(proximoSlideAuto, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Inicializa slides
+  if (slides.length > 0) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === 0);
+    });
+    reiniciarIntervalo();
+  }
+  // Adiciona eventos nos dots se necessário
+  if (dots.length > 0) {
+    dots.forEach((dot, i) => {
+      dot.onclick = () => irParaSlide(i);
+    });
+  }
+});
