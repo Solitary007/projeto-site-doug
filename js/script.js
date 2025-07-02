@@ -176,35 +176,57 @@ window.onclick = function(event) {
   }
 }
 
-document.querySelectorAll('.produto').forEach(produto => {
-  produto.addEventListener('click', function(e) {
-    if (e.target.classList.contains('whatsapp-btn')) return;
-
-    const imgs = this.getAttribute('data-imgs')
-      ? this.getAttribute('data-imgs').split(',').map(img => img.trim())
-      : [this.getAttribute('data-img')];
-    const nome = this.getAttribute('data-nome');
-    const preco = this.getAttribute('data-preco');
-    const descricao = this.getAttribute('data-descricao');
-    openModal(imgs, nome, preco, '1x', descricao, 1);
+// Função para filtrar produtos por categoria
+function filtrarProdutos(categoria) {
+  document.querySelectorAll('.produto').forEach(function(produto) {
+    const categorias = produto.getAttribute('data-categoria').split(',').map(c => c.trim());
+    if (categoria === 'Todos' || categorias.includes(categoria)) {
+      produto.style.display = '';
+    } else {
+      produto.style.display = 'none';
+    }
   });
-});
+}
 
-document.querySelectorAll('.menu-toggle').forEach(toggle => {
-  toggle.addEventListener('click', function(e) {
-    e.stopPropagation();
-    const li = this.parentElement;
-    const parentUl = li.parentElement;
+// Função para renderizar produtos dinamicamente
+function renderizarProdutos(produtosData) {
+  const container = document.querySelector('.produtos');
+  if (!container) return;
+  container.innerHTML = '';
+  produtosData.forEach(produto => {
+    const el = document.createElement('div');
+    el.className = 'produto';
+    el.setAttribute('data-nome', produto.nome);
+    el.setAttribute('data-preco', produto.preco);
+    el.setAttribute('data-descricao', produto.descricao);
+    el.setAttribute('data-categoria', produto.categorias.join(','));
+    el.setAttribute('data-imgs', produto.imgs.join(','));
+    el.innerHTML = `
+      <img src="${produto.imgs[0]}" alt="${produto.nome}">
+      <h3>${produto.nome}</h3>
+      <p>${produto.preco}</p>
+      <a target="_blank" class="whatsapp-btn" href="https://wa.me/5545999432624?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20${encodeURIComponent(produto.nome)}">Chamar no Whatsapp</a>
+    `;
+    container.appendChild(el);
+  });
+}
 
-    // Fecha todos os outros abertos no mesmo nível
-    Array.from(parentUl.children).forEach(sibling => {
-      if (sibling !== li) sibling.classList.remove('open');
+// Função para inicializar eventos nos produtos após renderização dinâmica
+function inicializarEventosProdutos() {
+  document.querySelectorAll('.produto').forEach(produto => {
+    produto.addEventListener('click', function(e) {
+      if (e.target.classList.contains('whatsapp-btn')) return;
+
+      const imgs = this.getAttribute('data-imgs')
+        ? this.getAttribute('data-imgs').split(',').map(img => img.trim())
+        : [this.getAttribute('data-img')];
+      const nome = this.getAttribute('data-nome');
+      const preco = this.getAttribute('data-preco');
+      const descricao = this.getAttribute('data-descricao');
+      openModal(imgs, nome, preco, '1x', descricao, 1);
     });
-
-    // Alterna o submenu do item clicado
-    li.classList.toggle('open');
   });
-});
+}
 
 // Banner central com fade suave
 let slideAtual = 0;
@@ -245,6 +267,14 @@ function reiniciarIntervalo() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Carrega produtos do JSON e inicializa eventos após renderização
+  fetch('data/produtos.json')
+    .then(res => res.json())
+    .then(produtosData => {
+      renderizarProdutos(produtosData);
+      inicializarEventosProdutos();
+    });
+
   // Inicializa slides
   if (slides.length > 0) {
     slides.forEach((slide, i) => {
@@ -257,5 +287,8 @@ document.addEventListener('DOMContentLoaded', function() {
     dots.forEach((dot, i) => {
       dot.onclick = () => irParaSlide(i);
     });
+  }
+  if (typeof inicializarEventosProdutos === 'function') {
+    inicializarEventosProdutos();
   }
 });

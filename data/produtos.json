@@ -1,0 +1,61 @@
+[
+  {
+    "nome": "Kit copo 01",
+    "preco": "R$239,00",
+    "descricao": "\n\n<b>ITENS:</b>\n- Caixa cartonada 20x20cm\n- ⁠Chaveiro com foto/frase\n- ⁠Caneta de metal\n- ⁠Bloquinho 14x9cm com linhas\n- ⁠Copo térmico 350mls \n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:\n</b> Gravação a laser em caixa, copo e caneta.\nPode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes. Processo de Termocolante em chaveiro e  bloquinho.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
+    "categorias": ["Todos", "Copos", "Gravados a laser", "Chaveiros", "Caixas"],
+    "imgs": [
+      "img/kits/kit-copo/preto-bloquinho/copo-bloquinho-preto-1.png",
+      "img/kits/kit-copo/preto-bloquinho/copo-bloquinho-preto-2.png",
+      "img/kits/kit-copo/preto-bloquinho/copo-bloquinho-preto-3.png"
+    ]
+  },
+  {
+    "nome": "Kit necessarie 01",
+    "preco": "R$195,00",
+    "descricao": "\n\n<b>ITENS:</b>\n- Caixa de mdf 20x20cm\n- ⁠Chaveiro\n- ⁠Caneta de metal\n- ⁠Bloquinho 14x9cm com linhas\n- ⁠Necessarie 15x10cm\n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa e caneta.\n(Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em chaveiro, Necessarie e bloquinho.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
+    "categorias": ["Todos", "Necessaries", "Gravados a laser", "Chaveiros", "Caixas", "Canetas"],
+    "imgs": [
+      "img/kits/kit-necessarie/marrom-necessarie-bloco/bloquinho-necessarie.jpg"
+    ]
+  },
+  {
+    "nome": "Kit copo 02",
+    "preco": "R$195,00",
+    "descricao": "\n\n<b>ITENS:</b>\n- Caixa de mdf 15x15cm\n- ⁠Chaveiro\n- ⁠Caneta de metal\n- ⁠Copo térmico 350 ml\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa, caneta e copo, somente de um lado. Pode ser colocado nome ou logomarca, com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em chaveiro.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
+    "categorias": ["Todos", "Copos", "Gravados a laser", "Chaveiros", "Caixas", "Canetas/box"],
+    "imgs": [
+      "img/kits/kit-copo/preto-chaveiro/copo-termico.jpg"
+    ]
+  },
+  {
+    "nome": "Kit garrafa 01",
+    "preco": "R$213,00",
+    "descricao": "\n\n<b>ITENS:</b>\n- Caixa rígida com ímã preta\n- ⁠Chaveiro com inicial\n- ⁠Porta retrato 10x15cm\n- ⁠Garrafa térmica 900ml\n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa e térmica.\n(Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em chaveiro.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
+    "categorias": ["Todos", "Gravados a laser", "Chaveiros", "Caixas", "Canetas/box"],
+    "imgs": [
+      "img/kits/kit-termica/preta-garrafa-termica/garrafa-quadro-termico-3.jpg",
+      "img/kits/kit-termica/preta-garrafa-termica/garrafa-quadro-termico-2.jpg",
+      "img/kits/kit-termica/preta-garrafa-termica/garrafa-quadro-termico-1.jpg"
+    ]
+  },
+  {
+    "nome": "Kit necessarie 02",
+    "preco": "R$149,00",
+    "descricao": "\n\n<b>ITENS:</b>\n- Caixa mdf 20x20cm\n- ⁠Caneta de metal\n- ⁠Bloquinho 14x9cm com linhas\n- ⁠Necessarie 10x15cm\n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa e caneta.\n(Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em necessarie e  bloquinho.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
+    "categorias": ["Todos", "Necessaries", "Gravados a laser", "Chaveiros", "Caixas", "Canetas/box"],
+    "imgs": [
+      "img/kits/kit-necessarie/preta-necessarie-bloco-caneta/necessarie-bloquinho.jpg"
+    ]
+  },
+  {
+    "nome": "Kit xicara 01",
+    "preco": "R$215,00",
+    "descricao": "\n\n<b>ITENS:</b>\n- Caixa mdf 20x20cm\n- ⁠Xícara 180ml\n- ⁠Bloquinho 14x9cm com linhas\n- ⁠Caneta de metal\n- ⁠Pires de madeira\n- ⁠Chocolate Ferrero Rocher\n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa e pires de madeira.\n(Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em bloquinho e sublimação em xícara.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
+    "categorias": ["Todos", "Caixas", "Chaveiros", "Canetas/box"],
+    "imgs": [
+      "img/kits/kit-xicara/xicara-bloquinho-1.jpg",
+      "img/kits/kit-xicara/xicara-bloquinho-2.jpg"
+    ]
+  }
+]
