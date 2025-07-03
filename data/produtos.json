@@ -5,9 +5,9 @@
     "descricao": "\n\n<b>ITENS:</b>\n- Caixa cartonada 20x20cm\n- ⁠Chaveiro com foto/frase\n- ⁠Caneta de metal\n- ⁠Bloquinho 14x9cm com linhas\n- ⁠Copo térmico 350mls \n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:\n</b> Gravação a laser em caixa, copo e caneta.\nPode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes. Processo de Termocolante em chaveiro e  bloquinho.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
     "categorias": ["Todos", "Copos", "Gravados a laser", "Chaveiros", "Caixas"],
     "imgs": [
-      "img/kits/kit-copo/preto-bloquinho/copo-bloquinho-preto-1.png",
-      "img/kits/kit-copo/preto-bloquinho/copo-bloquinho-preto-2.png",
-      "img/kits/kit-copo/preto-bloquinho/copo-bloquinho-preto-3.png"
+      "img/copo/01/01.png",
+      "img/copo/01/02.png",
+      "img/copo/01/03.png"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "descricao": "\n\n<b>ITENS:</b>\n- Caixa de mdf 20x20cm\n- ⁠Chaveiro\n- ⁠Caneta de metal\n- ⁠Bloquinho 14x9cm com linhas\n- ⁠Necessarie 15x10cm\n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa e caneta.\n(Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em chaveiro, Necessarie e bloquinho.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
     "categorias": ["Todos", "Necessaries", "Gravados a laser", "Chaveiros", "Caixas", "Canetas"],
     "imgs": [
-      "img/kits/kit-necessarie/marrom-necessarie-bloco/bloquinho-necessarie.jpg"
+      "img/necessarie/01/01.jpg"
     ]
   },
   {
@@ -25,7 +25,7 @@
     "descricao": "\n\n<b>ITENS:</b>\n- Caixa de mdf 15x15cm\n- ⁠Chaveiro\n- ⁠Caneta de metal\n- ⁠Copo térmico 350 ml\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa, caneta e copo, somente de um lado. Pode ser colocado nome ou logomarca, com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em chaveiro.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
     "categorias": ["Todos", "Copos", "Gravados a laser", "Chaveiros", "Caixas", "Canetas/box"],
     "imgs": [
-      "img/kits/kit-copo/preto-chaveiro/copo-termico.jpg"
+      "img/copo/02/01.png"
     ]
   },
   {
@@ -34,9 +34,9 @@
     "descricao": "\n\n<b>ITENS:</b>\n- Caixa rígida com ímã preta\n- ⁠Chaveiro com inicial\n- ⁠Porta retrato 10x15cm\n- ⁠Garrafa térmica 900ml\n(Consultar cores disponíveis dos itens).\n\n<b>PERSONALIZAÇÃO:</b>\nGravação a laser em caixa e térmica.\n(Pode ser colocado nome/ iniciais ou logomarca) com gravação apenas de 1 lado e no máximo 2 nomes.\nProcesso de Termocolante em chaveiro.\n<b>PERSONALIZAÇÃO NÃO SOLTA.</b>\n\nCaso o cliente não tenha uma fonte específica, fazemos com nossas fontes padrão. Não enviamos fontes pra escolha.",
     "categorias": ["Todos", "Gravados a laser", "Chaveiros", "Caixas", "Canetas/box"],
     "imgs": [
-      "img/kits/kit-termica/preta-garrafa-termica/garrafa-quadro-termico-3.jpg",
-      "img/kits/kit-termica/preta-garrafa-termica/garrafa-quadro-termico-2.jpg",
-      "img/kits/kit-termica/preta-garrafa-termica/garrafa-quadro-termico-1.jpg"
+      "img/garrafa/01-termicas/01.png",
+      "img/garrafa/01-termicas/02.png",
+      "img/garrafa/01-termicas/03.png"
     ]
   },
   {
